@@ -20,7 +20,7 @@ else:
 API_KEY = os.getenv("GOOGLE_API_KEY")
 
 # defining the llm 
-#google_llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", api_key = API_KEY, temperature=0.0)
+# llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash", api_key = API_KEY, temperature=0.0)
 llm = ChatOllama(model = "mistral:7b", temperature=0.0)
 
 # llm with tools 
@@ -36,9 +36,9 @@ class AgentState(TypedDict):
     
 # creating the simple chatbot 
 def chatbot(state: AgentState) -> AgentState:
-    print(f"\nSTATE: {state['messages']}\n")
+    # print(f"\nSTATE: {state['messages']}\n") , you can prin the state to see exactly how state changes look like
     
-    return {"messages": [llm.invoke(state['messages'])]}
+    return {"messages": [llm_with_tools.invoke(state['messages'])]}
 
 # defining router for conditional edges 
 def router(state: AgentState) -> str:
