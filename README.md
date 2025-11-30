@@ -24,7 +24,7 @@ Install:
 cd /Volumes/T7/Personal__Work/AgenticAI/StockScreenerAgent
 python -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt  # create this file or install packages manually
+pip install -r requirements.txt  
 ```
 
 ## Environment
